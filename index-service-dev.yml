@@ -1,9 +1,4 @@
-spring:
-  rabbitmq:
-    host: localhost
-    virtual-host:
-    username: guest
-    password: guest
+
 
 feign:
   hystrix:
