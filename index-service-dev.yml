@@ -1,0 +1,27 @@
+feign:
+  hystrix:
+    enabled: true
+
+
+#對外開放健康監控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            #断路器的超时时间ms,默认1000
+            timeoutInMilliseconds: 1000
+      circuitBreaker:
+        #当在配置时间窗口内达到此数量的失败后，进行短路
+        requestVolumeThreshold: 5
+        #出错百分比阈值，当达到此阈值后，开始短路。默认50%）
+        errorThresholdPercentage: 10
+        #短路多久以后开始尝试是否恢复，默认5s）-单位ms
+        sleepWindowInMilliseconds: 60000
