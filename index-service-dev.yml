@@ -1,6 +1,14 @@
+spring:
+  rabbitmq:
+    host: localhost
+    virtual-host:
+    username: guest
+    password: guest
+
 feign:
   hystrix:
     enabled: true
+  
 
 
 #對外開放健康監控
